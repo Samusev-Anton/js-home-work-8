@@ -1,7 +1,18 @@
+import Player from "@vimeo/player";
+const player = new Player('handstick', {
+    // id: 19231868,
+    // width: 640
+});
+
+player.on('play', function() {
+    console.log('played the video!');
+});
+
+
 // const Vimeo = require('@vimeo/player')
-const iframe = document.querySelector('iframe');
-// console.log(iframe);
-const player = new Vimeo.Player(iframe);
+// const iframe = document.querySelector('iframe');
+// // console.log(iframe);
+// const player = new Vimeo.Player(iframe);
 
 //     player.on('play', function() {
 //         console.log('played the video!');
@@ -11,13 +22,4 @@ const player = new Vimeo.Player(iframe);
 //         console.log('title:', title);
 //     });
 
-import Player from "@vimeo/player";
 
-// const player = new Player('handstick', {
-//     // id: 19231868,
-//     // width: 640
-// });
-
-player.on('play', function() {
-    console.log('played the video!');
-});
