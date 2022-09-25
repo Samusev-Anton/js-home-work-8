@@ -8,14 +8,12 @@ populateFormData();
 
 
 form.addEventListener('submit', onFormSubmit);
-// textarea.addEventListener('input', throttle(onTextareaInput, 1000));
 form.addEventListener('input', throttle(onFormInput, 1000));
 
 function onFormInput(evt) {
     formData[evt.target.name] = evt.target.value;
     localStorage.setItem('formData', JSON.stringify(formData));
 }
-
 
 function onFormSubmit(evt) {
     evt.preventDefault();
