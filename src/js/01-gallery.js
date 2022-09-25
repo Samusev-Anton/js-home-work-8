@@ -1,7 +1,7 @@
 // Add imports above this line
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import markupGallery from '../templates/gallery.hbs'
+// import markupGallery from '../templates/gallery.hbs'
 
 import {galleryItems} from './gallery-items';
 // Change code below this line
@@ -12,9 +12,14 @@ const imageMarkup = createGallery(galleryItems);
 imageConteiner.insertAdjacentHTML('beforeend', imageMarkup);
 
 function createGallery(galleryItems) {
-    return galleryItems.map(markupGallery).join('');
-}
-// console.log(markup);
+    return galleryItems.map(({ preview, original, description }) => {
+        return `
+    <a class="gallery__item" href="${original}" data-caption="${description}">
+  <img class="gallery__image" src="${preview}" alt="${description}" />
+</a>`
+    
+    }).join('');
+}// console.log(markup);
 imageConteiner.addEventListener('click', onClickImage);
 const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
